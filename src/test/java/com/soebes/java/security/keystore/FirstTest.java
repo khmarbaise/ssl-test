@@ -14,8 +14,6 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import org.testng.annotations.Test;
 
