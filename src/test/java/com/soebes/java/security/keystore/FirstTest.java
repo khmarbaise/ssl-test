@@ -14,6 +14,8 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.testng.annotations.Test;
 
@@ -52,12 +54,14 @@ public class FirstTest extends TestBase {
 
 		assertThat(keystore.containsAlias(certificateAlias)).isTrue();
 		assertThat(keystore.isKeyEntry(certificateAlias)).isTrue();
-//		assertThat(keystore.isCertificateEntry(certificateAlias)).isTrue();
+
 		Certificate cert = keystore.getCertificate(certificateAlias);
 		
 		System.out.println("Certificate:");
-		System.out.println("   Type: " + keystore.getType());
+		System.out.println("   Type: " + cert.getType());
 		System.out.println("   Cert: " + cert);
+		
+		System.out.println("    X: " + cert.getPublicKey());
 		
 		Provider provider = keystore.getProvider();
 		
@@ -65,6 +69,8 @@ public class FirstTest extends TestBase {
 		System.out.println("     Name: " + provider.getName());
 		System.out.println("     Info: " + provider.getInfo());
 		System.out.println("  Version: " + provider.getVersion());
+		
+//		Set<Entry<Object,Object>> entrySet = provider.entrySet();
 
 		Key key = keystore.getKey(certificateAlias, NO_PASSWORD);
 		System.out.println("Key:");
