@@ -21,6 +21,8 @@ public class FirstTest extends TestBase {
 
 	public static final char[] NO_PASSWORD = "".toCharArray();
 	public static final String KEY_STORE_TYPE = "PKCS12";
+	
+	public static final String KEY_STORE_FILE_NAME = "keystore.p12";
 
 	@Test
 	public void firstTest() {
@@ -31,7 +33,7 @@ public class FirstTest extends TestBase {
 	public void firstSSLTest() throws KeyStoreException,
 			NoSuchAlgorithmException, CertificateException, IOException, UnrecoverableKeyException {
 		
-		File keyStoreFile = new File(getTestResourcesDirectory(), "keystore.pkcs12");
+		File keyStoreFile = new File(getTestResourcesDirectory(), KEY_STORE_FILE_NAME);
 
 		System.out.println("File:" + keyStoreFile);
 //		char[] password = "password".toCharArray();
