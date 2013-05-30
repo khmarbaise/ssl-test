@@ -10,6 +10,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
+import java.security.PublicKey;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
@@ -64,7 +65,13 @@ public class FirstTest extends TestBase {
 	System.out.println("   Type: " + cert.getType());
 	System.out.println("   Cert: " + cert);
 
-	System.out.println("    X: " + cert.getPublicKey());
+	PublicKey publicKey = cert.getPublicKey();
+	
+	System.out.println("    Public Key: " + publicKey);
+	System.out.println("    Public Key: " + publicKey.getClass().getName());
+	
+	System.out.println("    Public Key (algorithm) : " + publicKey.getAlgorithm());
+	System.out.println("    Public Key (format) : " + publicKey.getFormat());
 
 	Provider provider = keystore.getProvider();
 
