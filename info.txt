@@ -1,0 +1,2 @@
+firstkeystore.jks
+  - password: 1234
